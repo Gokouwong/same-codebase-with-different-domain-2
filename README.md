@@ -1,0 +1,1 @@
+# same-codebase-with-different-domain-2
