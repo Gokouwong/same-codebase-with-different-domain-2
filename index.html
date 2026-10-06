@@ -4,58 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Dynamic Meta Tags -->
     <title id="site-title"></title>
     <meta property="og:url" id="og-url" content="">
     <link rel="canonical" id="canonical" href="">
-    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; }
-        
-        /* Header */
         .header { padding: 20px 0; text-align: center; color: #fff; }
         .header h1 { font-size: 2rem; }
         .header p { font-size: 0.9rem; opacity: 0.8; margin-top: 5px; }
-        
-        /* Nav */
         .nav { background: #333; padding: 10px 0; text-align: center; position: sticky; top: 0; z-index: 100; }
         .nav a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 0.95rem; }
         .nav a:hover { text-decoration: underline; }
         .nav a.active { font-weight: bold; border-bottom: 2px solid #fff; padding-bottom: 3px; }
-        
-        /* Domain Badge */
-        .domain-badge { 
-            text-align: center; padding: 12px; 
-            background: #fff3cd; color: #856404; 
-            font-size: 0.85rem; border-bottom: 1px solid #ffc107;
-        }
+        .domain-badge { text-align: center; padding: 12px; background: #fff3cd; color: #856404; font-size: 0.85rem; border-bottom: 1px solid #ffc107; }
         .domain-badge code { background: #856404; color: #fff; padding: 2px 8px; border-radius: 3px; }
-        
-        /* Content */
         .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        
-        /* Article Card */
-        .article-card {
-            background: #fff; border-radius: 8px; padding: 20px; margin-bottom: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s;
-        }
+        .article-card { background: #fff; border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s; }
         .article-card:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
         .article-card h2 { font-size: 1.2rem; margin-bottom: 8px; }
         .article-card h2 a { color: #333; text-decoration: none; }
         .article-card h2 a:hover { text-decoration: underline; }
         .article-card .meta { color: #888; font-size: 0.85rem; margin-bottom: 10px; }
         .article-card .excerpt { color: #555; line-height: 1.6; }
-        .article-card .tag { 
-            display: inline-block; background: #eee; color: #555; 
-            padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; margin-top: 10px;
-        }
-        
-        /* Footer */
+        .article-card .tag { display: inline-block; background: #eee; color: #555; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; margin-top: 10px; }
         .footer { text-align: center; padding: 30px; color: #888; font-size: 0.85rem; margin-top: 20px; }
-        
-        /* Article Detail */
         .article-detail { background: #fff; border-radius: 8px; padding: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .article-detail h1 { font-size: 1.8rem; margin-bottom: 10px; line-height: 1.4; }
         .article-detail .meta { color: #888; font-size: 0.9rem; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
@@ -63,22 +36,15 @@
         .article-detail .content p { margin-bottom: 15px; }
         .back-link { display: inline-block; margin-bottom: 15px; color: #007bff; text-decoration: none; }
         .back-link:hover { text-decoration: underline; }
-        
-        /* About Page */
         .info-box { background: #fff; border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .info-box h3 { margin-bottom: 10px; }
         .info-box table { width: 100%; border-collapse: collapse; }
         .info-box table td { padding: 8px 12px; border-bottom: 1px solid #eee; }
         .info-box table td:first-child { font-weight: bold; width: 40%; color: #555; }
         .config-value { font-family: monospace; background: #f0f0f0; padding: 2px 6px; border-radius: 3px; }
-        
-        /* Share Buttons */
         .share-bar { margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee; }
         .share-bar span { font-size: 0.85rem; color: #888; margin-right: 10px; }
-        .share-btn { 
-            display: inline-block; padding: 5px 12px; border-radius: 4px; 
-            color: #fff; text-decoration: none; font-size: 0.8rem; margin-right: 5px;
-        }
+        .share-btn { display: inline-block; padding: 5px 12px; border-radius: 4px; color: #fff; text-decoration: none; font-size: 0.8rem; margin-right: 5px; }
         .share-fb { background: #1877f2; }
         .share-tw { background: #1da1f2; }
         .share-link { background: #6c757d; cursor: pointer; }
@@ -86,37 +52,31 @@
 </head>
 <body>
 
-<!-- Header (dynamic color + branding) -->
 <div class="header" id="header">
     <h1 id="site-name"></h1>
     <p id="site-slogan"></p>
 </div>
 
-<!-- Domain Badge -->
 <div class="domain-badge">
-    🌐 你而家訪問緊：<code id="current-domain"></code> ｜ 
-    所有連結都會保持喺呢個 domain
+    🌐 你而家訪問緊：<code id="current-domain"></code> ｜ 所有連結都會保持喺呢個 domain
 </div>
 
-<!-- Navigation -->
 <div class="nav" id="nav">
-    <a href="/" id="nav-home">首頁</a>
-    <a href="/article/1001" id="nav-article">文章範例</a>
-    <a href="/about" id="nav-about">關於我們</a>
+    <a href="#/" id="nav-home">首頁</a>
+    <a href="#/article/1001" id="nav-article">文章範例</a>
+    <a href="#/about" id="nav-about">關於我們</a>
 </div>
 
-<!-- Main Content -->
 <div class="container" id="app"></div>
 
-<!-- Footer -->
 <div class="footer" id="footer"></div>
 
 <script>
 // ============================================================
-// 🔑 CORE: Site Config based on domain
+// Site Config based on domain
 // ============================================================
-const SITE_CONFIGS = {
-    'abc': {
+var SITE_CONFIGS = {
+    abc: {
         name: 'ABC 新聞',
         slogan: '最快最新嘅新聞資訊',
         color: '#1a73e8',
@@ -132,20 +92,17 @@ const SITE_CONFIGS = {
     }
 };
 
-// Detect which site based on hostname
 function detectSite() {
-    const host = window.location.hostname.toLowerCase();
-    if (host.includes('123')) return '123';
+    var host = window.location.hostname.toLowerCase();
+    if (host.indexOf('123') !== -1) return '123';
     return 'abc';
 }
 
-const currentSite = detectSite();
-const config = SITE_CONFIGS[currentSite];
-const currentDomain = window.location.origin;
+var currentSite = detectSite();
+var config = SITE_CONFIGS[currentSite];
+var currentDomain = window.location.origin;
 
-// ============================================================
-// 🎨 Apply Branding
-// ============================================================
+// Apply Branding
 document.getElementById('site-title').textContent = config.name;
 document.getElementById('site-name').textContent = config.logo + ' ' + config.name;
 document.getElementById('site-slogan').textContent = config.slogan;
@@ -154,9 +111,9 @@ document.getElementById('current-domain').textContent = window.location.hostname
 document.getElementById('footer').textContent = config.footer;
 
 // ============================================================
-// 📰 Shared Article Database (同一個 DB)
+// Shared Article Database
 // ============================================================
-const ARTICLES = [
+var ARTICLES = [
     {
         id: 1001,
         title: '科技巨頭宣布全新 AI 助手，改變日常生活',
@@ -187,137 +144,104 @@ const ARTICLES = [
 ];
 
 // ============================================================
-// 🔀 Client-Side Router (SPA style)
+// Hash Router
 // ============================================================
-function navigate(path) {
-    window.history.pushState({}, '', path);
-    init();
-}
-
-// Intercept all internal link clicks
-document.addEventListener('click', function(e) {
-    const link = e.target.closest('a');
-    if (link && link.href.startsWith(window.location.origin) && !link.target) {
-        e.preventDefault();
-        navigate(link.getAttribute('href'));
-    }
-});
-
-// Handle browser back/forward
-window.addEventListener('popstate', init);
-
 function getRoute() {
-    const path = window.location.pathname;
-    if (path === '/' || path === '/index.html') return { page: 'home' };
-    const articleMatch = path.match(/\/article\/(\d+)/);
+    var hash = window.location.hash || '#/';
+    if (hash === '#/' || hash === '#' || hash === '') return { page: 'home' };
+    var articleMatch = hash.match(/#\/article\/(\d+)/);
     if (articleMatch) return { page: 'article', id: parseInt(articleMatch[1]) };
-    if (path === '/about') return { page: 'about' };
+    if (hash === '#/about') return { page: 'about' };
     return { page: 'home' };
 }
 
 // ============================================================
-// 📄 Page Renderers
+// Page Renderers
 // ============================================================
-
 function renderHome() {
-    let html = '<h2 style="margin-bottom:15px;">📰 最新新聞</h2>';
-    ARTICLES.forEach(article => {
-        html += `
-        <div class="article-card">
-            <h2><a href="/article/${article.id}">${article.title}</a></h2>
-            <div class="meta">📅 ${article.date} ｜ ✍️ ${article.author}</div>
-            <div class="excerpt">${article.excerpt}</div>
-            <span class="tag">${article.tag}</span>
-        </div>`;
-    });
+    var html = '<h2 style="margin-bottom:15px;">📰 最新新聞</h2>';
+    for (var i = 0; i < ARTICLES.length; i++) {
+        var article = ARTICLES[i];
+        html += '<div class="article-card">' +
+            '<h2><a href="#/article/' + article.id + '">' + article.title + '</a></h2>' +
+            '<div class="meta">📅 ' + article.date + ' ｜ ✍️ ' + article.author + '</div>' +
+            '<div class="excerpt">' + article.excerpt + '</div>' +
+            '<span class="tag">' + article.tag + '</span>' +
+            '</div>';
+    }
     return html;
 }
 
 function renderArticle(id) {
-    const article = ARTICLES.find(a => a.id === id);
+    var article = null;
+    for (var i = 0; i < ARTICLES.length; i++) {
+        if (ARTICLES[i].id === id) { article = ARTICLES[i]; break; }
+    }
     if (!article) return '<p>❌ 搵唔到呢篇文章</p>';
-    
-    const shareUrl = encodeURIComponent(`${currentDomain}/article/${article.id}`);
-    const shareTitle = encodeURIComponent(article.title);
-    
-    document.getElementById('canonical').href = `${currentDomain}/article/${article.id}`;
-    document.getElementById('og-url').content = `${currentDomain}/article/${article.id}`;
-    document.getElementById('site-title').textContent = `${article.title} - ${config.name}`;
-    
-    const related = ARTICLES.filter(a => a.id !== id).slice(0, 2);
-    let relatedHtml = related.map(a => 
-        `<div class="article-card">
-            <h2><a href="/article/${a.id}">${a.title}</a></h2>
-            <div class="meta">📅 ${a.date}</div>
-        </div>`
-    ).join('');
-    
-    return `
-        <a href="/" class="back-link">← 返回首頁</a>
-        <div class="article-detail">
-            <h1>${article.title}</h1>
-            <div class="meta">📅 ${article.date} ｜ ✍️ ${article.author} ｜ 🏷️ ${article.tag}</div>
-            <div class="content">${article.content}</div>
-            <div class="share-bar">
-                <span>分享：</span>
-                <a class="share-btn share-fb" href="https://www.facebook.com/sharer.php?u=${shareUrl}" target="_blank">Facebook</a>
-                <a class="share-btn share-tw" href="https://twitter.com/intent/tweet?url=${shareUrl}&text=${shareTitle}" target="_blank">Twitter</a>
-                <span class="share-btn share-link" onclick="navigator.clipboard.writeText('${currentDomain}/article/${article.id}'); alert('已複製連結！')">📋 複製連結</span>
-            </div>
-        </div>
-        <h3 style="margin:20px 0 10px;">📖 相關文章</h3>
-        ${relatedHtml}
-    `;
+
+    var shareUrl = encodeURIComponent(currentDomain + '/#/article/' + article.id);
+    var shareTitle = encodeURIComponent(article.title);
+
+    document.getElementById('canonical').href = currentDomain + '/#/article/' + article.id;
+    document.getElementById('og-url').content = currentDomain + '/#/article/' + article.id;
+    document.getElementById('site-title').textContent = article.title + ' - ' + config.name;
+
+    var related = [];
+    for (var i = 0; i < ARTICLES.length; i++) {
+        if (ARTICLES[i].id !== id && related.length < 2) related.push(ARTICLES[i]);
+    }
+    var relatedHtml = '';
+    for (var i = 0; i < related.length; i++) {
+        relatedHtml += '<div class="article-card">' +
+            '<h2><a href="#/article/' + related[i].id + '">' + related[i].title + '</a></h2>' +
+            '<div class="meta">📅 ' + related[i].date + '</div></div>';
+    }
+
+    return '<a href="#/" class="back-link">← 返回首頁</a>' +
+        '<div class="article-detail">' +
+        '<h1>' + article.title + '</h1>' +
+        '<div class="meta">📅 ' + article.date + ' ｜ ✍️ ' + article.author + ' ｜ 🏷️ ' + article.tag + '</div>' +
+        '<div class="content">' + article.content + '</div>' +
+        '<div class="share-bar">' +
+        '<span>分享：</span>' +
+        '<a class="share-btn share-fb" href="https://www.facebook.com/sharer.php?u=' + shareUrl + '" target="_blank">Facebook</a>' +
+        '<a class="share-btn share-tw" href="https://twitter.com/intent/tweet?url=' + shareUrl + '&text=' + shareTitle + '" target="_blank">Twitter</a>' +
+        '<span class="share-btn share-link" onclick="navigator.clipboard.writeText(\'' + currentDomain + '/#/article/' + article.id + '\'); alert(\'已複製連結！\')">📋 複製連結</span>' +
+        '</div></div>' +
+        '<h3 style="margin:20px 0 10px;">📖 相關文章</h3>' + relatedHtml;
 }
 
 function renderAbout() {
-    return `
-        <h2 style="margin-bottom:15px;">ℹ️ 關於我們</h2>
-        
-        <div class="info-box">
-            <h3>🔍 當前 Site 配置（證明同一份 Code 顯示唔同內容）</h3>
-            <table>
-                <tr><td>當前 Domain</td><td><span class="config-value">${window.location.hostname}</span></td></tr>
-                <tr><td>Site 名稱</td><td><span class="config-value">${config.name}</span></td></tr>
-                <tr><td>Site 標語</td><td><span class="config-value">${config.slogan}</span></td></tr>
-                <tr><td>主題顏色</td><td><span class="config-value" style="color:${config.color}">${config.color}</span></td></tr>
-                <tr><td>Logo</td><td>${config.logo}</td></tr>
-            </table>
-        </div>
-        
-        <div class="info-box">
-            <h3>🏗️ 架構說明</h3>
-            <table>
-                <tr><td>Code</td><td>兩個 domain 共用 <span class="config-value">同一份 code</span></td></tr>
-                <tr><td>Database</td><td>共用 <span class="config-value">同一個 DB</span>（demo 用 JS array）</td></tr>
-                <tr><td>Domain 識別</td><td>透過 <span class="config-value">window.location.hostname</span> 判斷</td></tr>
-                <tr><td>連結策略</td><td>全部用 <span class="config-value">relative path</span>，唔會跳轉</td></tr>
-            </table>
-        </div>
-        
-        <div class="info-box">
-            <h3>🧪 測試方法</h3>
-            <table>
-                <tr><td>Site A</td><td><span class="config-value">news-abc.pages.dev</span> → 藍色主題 📘</td></tr>
-                <tr><td>Site B</td><td><span class="config-value">news-123.pages.dev</span> → 紅色主題 📕</td></tr>
-            </table>
-            <p style="margin-top:10px; color:#888; font-size:0.85rem;">
-                試下喺兩個 domain 之間切換，你會見到 branding 唔同，但內容一樣！
-            </p>
-        </div>
-    `;
+    return '<h2 style="margin-bottom:15px;">ℹ️ 關於我們</h2>' +
+        '<div class="info-box"><h3>🔍 當前 Site 配置（證明同一份 Code 顯示唔同內容）</h3><table>' +
+        '<tr><td>當前 Domain</td><td><span class="config-value">' + window.location.hostname + '</span></td></tr>' +
+        '<tr><td>Site 名稱</td><td><span class="config-value">' + config.name + '</span></td></tr>' +
+        '<tr><td>Site 標語</td><td><span class="config-value">' + config.slogan + '</span></td></tr>' +
+        '<tr><td>主題顏色</td><td><span class="config-value" style="color:' + config.color + '">' + config.color + '</span></td></tr>' +
+        '<tr><td>Logo</td><td>' + config.logo + '</td></tr>' +
+        '</table></div>' +
+        '<div class="info-box"><h3>🏗️ 架構說明</h3><table>' +
+        '<tr><td>Code</td><td>兩個 domain 共用 <span class="config-value">同一份 code</span></td></tr>' +
+        '<tr><td>Database</td><td>共用 <span class="config-value">同一個 DB</span>（demo 用 JS array）</td></tr>' +
+        '<tr><td>Domain 識別</td><td>透過 <span class="config-value">window.location.hostname</span> 判斷</td></tr>' +
+        '<tr><td>連結策略</td><td>全部用 <span class="config-value">hash routing</span>，唔會跳轉</td></tr>' +
+        '</table></div>' +
+        '<div class="info-box"><h3>🧪 測試方法</h3><table>' +
+        '<tr><td>Site A</td><td><span class="config-value">news-abc.pages.dev</span> → 藍色主題 📘</td></tr>' +
+        '<tr><td>Site B</td><td><span class="config-value">news-123.pages.dev</span> → 紅色主題 📕</td></tr>' +
+        '</table><p style="margin-top:10px; color:#888; font-size:0.85rem;">試下喺兩個 domain 之間切換，你會見到 branding 唔同，但內容一樣！</p></div>';
 }
 
 // ============================================================
-// 🚀 Init
+// Init
 // ============================================================
 function init() {
-    const route = getRoute();
-    const app = document.getElementById('app');
-    
-    document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
-    
-    switch(route.page) {
+    var route = getRoute();
+    var app = document.getElementById('app');
+    var navLinks = document.querySelectorAll('.nav a');
+    for (var i = 0; i < navLinks.length; i++) navLinks[i].classList.remove('active');
+
+    switch (route.page) {
         case 'home':
             app.innerHTML = renderHome();
             document.getElementById('nav-home').classList.add('active');
@@ -330,12 +254,13 @@ function init() {
         case 'about':
             app.innerHTML = renderAbout();
             document.getElementById('nav-about').classList.add('active');
-            document.getElementById('site-title').textContent = `關於我們 - ${config.name}`;
+            document.getElementById('site-title').textContent = '關於我們 - ' + config.name;
             break;
     }
     window.scrollTo(0, 0);
 }
 
+window.addEventListener('hashchange', init);
 init();
 </script>
 </body>
